@@ -9,11 +9,11 @@ import { routerTransition } from '../router.animations';
     animations: [routerTransition()]
 })
 export class LoginComponent implements OnInit {
-    constructor(public router: Router) {}
 
-    ngOnInit() {}
+    constructor(public router: Router,
+               ) {}
 
-    onLoggedin() {
-        localStorage.setItem('isLoggedin', 'true');
+    ngOnInit() {
+        localStorage.setItem("isLoggedin","login");
     }
 }
