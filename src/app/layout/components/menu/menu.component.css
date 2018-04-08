@@ -1,5 +1,5 @@
 #menu ul {
-    background: #1F568B;
+    background: #575757;
     list-style-type: none;
     text-align: center;
 }
@@ -10,7 +10,6 @@
     width: 120px;
     height: 40px;
     line-height: 40px;
-    margin-left: -5px;
 }
 
 #menu a {

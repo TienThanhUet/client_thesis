@@ -9,7 +9,12 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class MenuComponent implements OnInit{
 
-
+    menu:string[] = [
+        'PHIM MỚI',
+        'THỂ LOẠI',
+        'QUỐC GIA',
+        'PHIM BỘ'
+    ]
 
 
     constructor(

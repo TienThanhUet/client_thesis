@@ -7,9 +7,18 @@ import { DashboardComponent } from './dashboard.component';
 import {
     TimelineComponent,
     NotificationComponent,
-    ChatComponent
+    ChatComponent,
+    SidebarComponent
+
 } from './components';
-import { StatModule } from '../../shared';
+import { StatModule,CommentModule } from '../../shared';
+// import {MdCardModule} from "@angular2-material/card";
+// import {MdToolbarModule} from "@angular2-material/toolbar";
+// import {MdButtonModule} from "@angular2-material/button";
+// import {MdInputModule} from "@angular2-material/input";
+import {SwiperModule} from "angular2-useful-swiper";
+import {DashboardService} from "./service/dashboard.service";
+// import 'hammerjs';
 
 @NgModule({
     imports: [
@@ -17,13 +26,23 @@ import { StatModule } from '../../shared';
         NgbCarouselModule.forRoot(),
         NgbAlertModule.forRoot(),
         DashboardRoutingModule,
-        StatModule
+        StatModule,
+        SwiperModule,
+        CommentModule
+        // MdCardModule,
+        // MdToolbarModule,
+        // MdButtonModule,
+        // MdInputModule,
     ],
     declarations: [
         DashboardComponent,
         TimelineComponent,
         NotificationComponent,
-        ChatComponent
+        ChatComponent,
+        SidebarComponent
+    ],
+    providers:[
+        DashboardService
     ]
 })
 export class DashboardModule {}

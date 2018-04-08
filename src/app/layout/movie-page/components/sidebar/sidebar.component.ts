@@ -2,16 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
+
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss']
+    selector: 'app-sidebar',
+    templateUrl: './sidebar.component.html',
+    styleUrls: ['./sidebar.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class SidebarComponent {
+    isActive: boolean = false;
+    showMenu: string = '';
     pushRightClass: string = 'push-right';
 
     constructor(private translate: TranslateService, public router: Router) {
-
         this.translate.addLangs(['en','vn']);
         this.translate.setDefaultLang('en');
         const browserLang = this.translate.getBrowserLang();
@@ -28,8 +30,16 @@ export class HeaderComponent implements OnInit {
         });
     }
 
-    ngOnInit() {
-        this.rltAndLtr();
+    eventCalled() {
+        this.isActive = !this.isActive;
+    }
+
+    addExpandClass(element: any) {
+        if (element === this.showMenu) {
+            this.showMenu = '0';
+        } else {
+            this.showMenu = element;
+        }
     }
 
     isToggled(): boolean {
@@ -47,11 +57,11 @@ export class HeaderComponent implements OnInit {
         dom.classList.toggle('rtl');
     }
 
-    onLoggedout() {
-        localStorage.removeItem('isLoggedin');
-    }
-
     changeLang(language: string) {
         this.translate.use(language);
+    }
+
+    onLoggedout() {
+        localStorage.removeItem('isLoggedin');
     }
 }

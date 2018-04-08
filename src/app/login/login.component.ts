@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
+import {AuthService} from "../oauth2/auth.service";
 
 @Component({
     selector: 'app-login',
@@ -8,12 +9,41 @@ import { routerTransition } from '../router.animations';
     styleUrls: ['./login.component.scss'],
     animations: [routerTransition()]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-    constructor(public router: Router,
-               ) {}
+    @ViewChild('errorModal') errorModal: any
+    data = {username: '', password: '', grant_type: 'password'}
+    errorTitle: string
+    errorMessage: string
 
-    ngOnInit() {
-        localStorage.setItem("isLoggedin","login");
+    constructor(
+        private router: Router,
+        private auth: AuthService) {
+
+    }
+
+    processLogin = (data) => {
+        this.auth.login(data).subscribe(
+            response => {
+                console.log("user login!!!");
+                console.log(response);
+                this.auth.setToken(response.access_token);
+                this.auth.setRefreshToken(response.refresh_token);
+
+                console.log(this.auth.getRedirectUrl());
+                if (this.auth.getRedirectUrl()) {
+                    this.router.navigate(['/' + this.auth.getRedirectUrl()])
+                } else {
+                    this.router.navigate(['/layout/dashboard'])
+                }
+
+            },
+            error => {
+                const response = JSON.parse(error.error)
+                this.errorTitle = response.error;
+                this.errorMessage = response.error_description;
+                this.errorModal.show();
+            }
+        )
     }
 }

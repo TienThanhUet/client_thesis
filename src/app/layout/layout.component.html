@@ -1,12 +1,13 @@
-<app-header></app-header>
-<app-menu></app-menu>
-<div >
-    <div class="col-md-10 pull-left" >
+<div style="background-color: rgba(12,12,12,.81);">
+    <app-header></app-header>
+    <app-menu></app-menu>
+    <div >
         <section class="main-container" >
             <router-outlet></router-outlet>
         </section>
     </div>
-    <div class="col-md-2">
-        <app-sidebar ></app-sidebar>
-    </div>
+    <div style="overflow: auto;"></div>
+    <section class="footer col-md-12">
+        <img src="assets/images/uet-icon.png" style="height: 80px;width: 85px">
+    </section>
 </div>
