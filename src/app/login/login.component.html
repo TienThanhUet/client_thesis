@@ -2,7 +2,7 @@
     <div class="row justify-content-md-center">
         <div class="col-md-4">
             <img src="assets/images/uet-icon.png" width="150px" class="user-avatar"/>
-            <h1>UET rating movies</h1>
+            <h1>UET Recommendation Movies</h1>
             <form  (ngSubmit)="processLogin(data)" #loginForm="ngForm">
                 <div class="form-content">
                     <div class="form-group">
@@ -14,10 +14,11 @@
                         <input type="password" class="form-control input-underline input-lg" [(ngModel)]="data.password" name="password" required
                                placeholder="Password">
                     </div>
+                    <span style="color: red">{{errorMessage}}</span>
                 </div>
-                <button class="btn rounded-btn" type="submit" > Đăng nhập </button>
+                <button class="btn rounded-btn" type="submit" > Login </button>
                 &nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/signup']">Đăng ký </a>
+                <a class="btn rounded-btn" [routerLink]="['/signup']"> Sign up </a>
                 <!--<google-signin></google-signin>-->
                 <!--<facebook-signin></facebook-signin>-->
             </form>

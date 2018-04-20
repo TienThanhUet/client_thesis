@@ -10,10 +10,7 @@ import {AuthService} from "../oauth2/auth.service";
     animations: [routerTransition()]
 })
 export class LoginComponent {
-
-    @ViewChild('errorModal') errorModal: any
     data = {username: '', password: '', grant_type: 'password'}
-    errorTitle: string
     errorMessage: string
 
     constructor(
@@ -23,6 +20,7 @@ export class LoginComponent {
     }
 
     processLogin = (data) => {
+        if(this.validate(data)) return;
         this.auth.login(data).subscribe(
             response => {
                 console.log("user login!!!");
@@ -40,10 +38,21 @@ export class LoginComponent {
             },
             error => {
                 const response = JSON.parse(error.error)
-                this.errorTitle = response.error;
-                this.errorMessage = response.error_description;
-                this.errorModal.show();
+                this.errorMessage = "username or password incorrect";
             }
         )
+    }
+
+    validate(data){
+        if(data.username.trim()==''){
+            this.errorMessage = 'username incorrect';
+            return true;
+        }
+
+        if(data.password.trim()==''){
+            this.errorMessage = 'password incorrect';
+            return true;
+        }
+        return false;
     }
 }

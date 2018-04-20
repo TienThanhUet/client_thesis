@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import {DashboardService} from "./service/dashboard.service";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-dashboard',
@@ -11,7 +12,10 @@ import {DashboardService} from "./service/dashboard.service";
 export class DashboardComponent implements OnInit {
     public sliders: Array<any> = [];
 
-    constructor(public dashboardService: DashboardService) {
+    constructor(
+        public dashboardService: DashboardService,
+        private router: Router,
+    ) {
         this.sliders.push(
             {
                 imagePath: 'assets/images/slider2.jpg',
@@ -36,7 +40,7 @@ export class DashboardComponent implements OnInit {
     }
 
     config: SwiperOptions = {
-        slidesPerView: 7,
+        slidesPerView: 5,
         spaceBetween: 30,
         slidesPerGroup: 7,
         loop: true,

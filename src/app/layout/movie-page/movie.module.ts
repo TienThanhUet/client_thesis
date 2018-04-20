@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MovieRoutingModule } from './movie-routing.module';
 
-import { MovieComponent } from './movie.component';
+import { MovieComponent } from './movie-page.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component'
 
 @NgModule({

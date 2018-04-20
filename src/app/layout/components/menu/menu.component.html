@@ -1,5 +1,64 @@
 <div id="menu">
     <ul>
-        <li *ngFor="let type of menu">{{type}}</li>
+        <li class="nav-item dropdown" ngbDropdown>
+            <label class="nav-link" ngbDropdownToggle>
+                PHIM MỚI
+            </label>
+            <div class="dropdown-menu pull-left" ngbDropdownMenu>
+                <a class="dropdown-item" href="javascript:void(0)">
+                    PHIM MỚI TRONG THÁNG
+                </a>
+                <a class="dropdown-item" href="javascript:void(0)" >
+                    PHIM MỚI TRONG NĂM
+                </a>
+            </div>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+            <label class="nav-link" ngbDropdownToggle>
+                THỂ LOẠI
+            </label>
+            <div class="dropdown-menu" ngbDropdownMenu>
+                <a class="dropdown-item" href="javascript:void(0)">
+                    HÀNH ĐỘNG
+                </a>
+                <a class="dropdown-item" href="javascript:void(0)" >
+                    VIỄN TƯỞNG
+                </a>
+                <a class="dropdown-item" href="javascript:void(0)" >
+                    HOẠT HÌNH
+                </a>
+                <a class="dropdown-item" href="javascript:void(0)" >
+                    TÌNH CẢM
+                </a>
+                <a class="dropdown-item" href="javascript:void(0)" >
+                    PHIM HÀI
+                </a>
+            </div>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+            <label class="nav-link" ngbDropdownToggle>
+                QUỐC GIA
+            </label>
+            <div class="dropdown-menu" ngbDropdownMenu>
+                <a class="dropdown-item" href="javascript:void(0)">
+                    PHIM MỸ
+                </a>
+                <a class="dropdown-item" href="javascript:void(0)" >
+                    PHIM HỒNG KÔNG
+                </a>
+                <a class="dropdown-item" href="javascript:void(0)" >
+                    PHIM ANH
+                </a>
+                <a class="dropdown-item" href="javascript:void(0)" >
+                    PHIM ẤN ĐỘ
+                </a>
+                <a class="dropdown-item" href="javascript:void(0)" >
+                    PHIM TRUNG QUỐC
+                </a>
+                <a class="dropdown-item" href="javascript:void(0)" >
+                    PHIM NHẬT
+                </a>
+            </div>
+        </li>
     </ul>
 </div>
