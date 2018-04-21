@@ -1,94 +1,92 @@
 <div class="container">
     <section>
-        <div class="col-md-9 pull-left">
-            <div class="title_block">
-                <div class="title_bar_wrapper">
+        <div class="col-md-9 pull-left" style="padding: 0 0 0 0">
+            <div class="vital">
+                <div class="title_block">
+                    <div class="title_bar_wrapper">
 
-                    <div class="ratings_wrapper">
-                        <div class="imdbRating" itemtype="http://schema.org/AggregateRating" itemscope=""
-                             itemprop="aggregateRating">
-                            <div class="ratingValue">
-                                <strong title="6.8 based on 35,401 user ratings"><span itemprop="ratingValue">6.8</span></strong><span
-                                class="grey">/</span><span class="grey" itemprop="bestRating">10</span></div>
-                            <a href="/title/tt1365519/ratings?ref_=tt_ov_rt"><span class="small" itemprop="ratingCount">35,401</span></a>
-                        </div>
+                        <div class="ratings_wrapper">
+                            <div class="imdbRating" itemtype="http://schema.org/AggregateRating" itemscope=""
+                                 itemprop="aggregateRating">
+                                <div class="ratingValue">
+                                    <strong title="6.8 based on 35,401 user ratings"><span itemprop="ratingValue">{{movieDetails.averageRating}}</span></strong><span
+                                    class="grey">/</span><span class="grey" itemprop="bestRating">10</span></div>
+                                <a href="/title/tt1365519/ratings?ref_=tt_ov_rt"><span class="small" itemprop="ratingCount">{{movieDetails.numVotes}}</span></a>
+                            </div>
 
-                        <div id="star-rating-widget" class="star-rating-widget" data-tconst="tt1365519" data-rating="0"
-                             data-user="" data-auth="" data-tracking-tag="title-maindetails"
-                             data-rating-share-enabled="false" data-title="Tomb Raider"
-                             data-rating-next-share-time="2000-01-01T00:00:00.000Z" data-rating-share-treatment="C">
-                            <div class="star-rating-button" data-reactid=".2">
-                                <button data-reactid=".2.0"><span class="star-rating-star no-rating"
-                                                                  data-reactid=".2.0.0"></span><span
-                                    class="star-rating-text" data-reactid=".2.0.1">Rate This</span></button>
+                            <div id="star-rating-widget" class="star-rating-widget" data-rating="0"
+                                 data-user="" data-auth="" data-tracking-tag="title-maindetails"
+                                 data-rating-share-enabled="false"
+                                 data-rating-next-share-time="2000-01-01T00:00:00.000Z" data-rating-share-treatment="C">
+                                <div class="star-rating-button" data-reactid=".2">
+                                    <button data-reactid=".2.0"><span class="star-rating-star no-rating"
+                                                                      data-reactid=".2.0.0"></span><span
+                                        class="star-rating-text" data-reactid=".2.0.1">Rate This</span></button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="titleBar">
-                        <div class="primary_ribbon">
-                            <div class="ribbonize" data-tconst="tt1365519" data-caller-name="title"
-                                 style="position: relative;">
-                                <div class="wl-ribbon standalone not-inWL" title="Click to add to watchlist"></div>
+                        <div class="titleBar">
+                            <div class="primary_ribbon">
+                                <div class="ribbonize" data-tconst="tt1365519" data-caller-name="title"
+                                     style="position: relative;">
+                                    <div class="wl-ribbon standalone not-inWL" title="Click to add to watchlist"></div>
+                                </div>
+                                <div class="wlb_dropdown_btn btn2_wrapper btn2_active wlb_dropdown" data-tconst="tt1365519"
+                                     data-size="large" data-caller-name="title" data-type="primary" data-initialized="1">
+                                    <div class="btn2_alert" style="display:none"></div>
+                                    <a class="btn2 large primary btn2_glyph_on" onclick=""><span class="btn2_glyph"><div
+                                        class="btn2_down"></div></span><span class="btn2_text"></span></a></div>
+                                <div class="wlb_dropdown_list" style="display:none"></div>
                             </div>
-                            <div class="wlb_dropdown_btn btn2_wrapper btn2_active wlb_dropdown" data-tconst="tt1365519"
-                                 data-size="large" data-caller-name="title" data-type="primary" data-initialized="1">
-                                <div class="btn2_alert" style="display:none"></div>
-                                <a class="btn2 large primary btn2_glyph_on" onclick=""><span class="btn2_glyph"><div
-                                    class="btn2_down"></div></span><span class="btn2_text"></span></a></div>
-                            <div class="wlb_dropdown_list" style="display:none"></div>
-                        </div>
 
-                        <div class="title_wrapper">
-                            <h1 itemprop="name" class="">Tomb Raider&nbsp;<span id="titleYear">(<a
-                                href="/year/2018/?ref_=tt_ov_inf">2018</a>)</span></h1>
-                            <div class="subtext">
-                                <meta itemprop="contentRating" content="PG-13">
-                                PG-13
-                                <span class="ghost">|</span>
-                                <time itemprop="duration" datetime="PT118M">
-                                    1h 58min
-                                </time>
-                                <span class="ghost">|</span>
-                                <a href="/genre/Action?ref_=tt_ov_inf"><span class="itemprop"
-                                                                             itemprop="genre">Action</span></a>,
-                                <a href="/genre/Adventure?ref_=tt_ov_inf"><span class="itemprop" itemprop="genre">Adventure</span></a>
-
-                                <span class="ghost">|</span>
-                                <a href="/title/tt1365519/releaseinfo?ref_=tt_ov_inf" title="See more release dates">16
-                                    March 2018 (USA)
-                                    <meta itemprop="datePublished" content="2018-03-16">
-                                </a></div>
+                            <div class="title_wrapper">
+                                <h1 itemprop="name" class="">{{movieDetails.primaryTitle}}&nbsp;<span id="titleYear">(<a
+                                    href="/year/2018/?ref_=tt_ov_inf">{{movieDetails.startYear}}</a>)</span></h1>
+                                <div class="subtext">
+                                    <meta itemprop="contentRating" content="PG-13">
+                                    PG-13
+                                    <span class="ghost">|</span>
+                                    <time itemprop="duration" datetime="PT118M">
+                                        1h 58min
+                                    </time>
+                                    <span class="ghost">|</span>
+                                    <a href="/genre/Action?ref_=tt_ov_inf"><span class="itemprop" itemprop="genre">{{movieDetails.genres}}</span></a>
+                                    <span class="ghost">|</span>
+                                    <a href="/title/tt1365519/releaseinfo?ref_=tt_ov_inf" title="See more release dates">({{movieDetails.region}})
+                                        <meta itemprop="datePublished" content="2018-03-16">
+                                    </a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="slate_wrapper">
-                <div class="poster">
-                    <a href="/title/tt1365519/mediaviewer/rm567498240?ref_=tt_ov_i"> <img alt="Tomb Raider Poster"
-                                                                                          title="Tomb Raider Poster"
-                                                                                          src="https://ia.media-imdb.com/images/M/MV5BOTY4NDcyZGQtYmVlNy00ODgwLTljYTMtYzQ2OTE3NDhjODMwXkEyXkFqcGdeQXVyNzYzODM3Mzg@._V1_UX182_CR0,0,182,268_AL_.jpg"
-                                                                                          itemprop="image">
-                    </a></div>
-                <div class="slate">
-                    <a href="/video/imdb/vi3590174745?playlistId=tt1365519&amp;ref_=tt_ov_vi"
-                       class="slate_button prevent-ad-overlay video-modal" data-type="recommends"
-                       data-tconst="tt1365519" data-video="vi3590174745" data-context="imdb" itemprop="trailer"
-                       data-refsuffix="tt_ov_vi" data-pixels=""> <img alt="Trailer" title="Trailer"
-                                                                      src="https://images-na.ssl-images-amazon.com/images/M/MV5BMmQ3MDc2N2MtZmU4OC00ZDVhLTgxMjUtNzVkYTk4NjkzM2Y3XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX477_CR0,0,477,268_AL_.jpg"
-                                                                      itemprop="image">
-                        <div class="slate_fade_top"></div>
-                        <div class="slate_fade_bottom"></div>
-                    </a>
-                    <div class="caption">
-                        <div style="clear: both;"></div>
+                <div class="slate_wrapper">
+                    <div class="poster">
+                        <a href="/title/tt1365519/mediaviewer/rm567498240?ref_=tt_ov_i"> <img alt="{{movieDetails.primaryTitle}}"
+                                                                                              title="{{movieDetails.primaryTitle}}"
+                                                                                              src="{{movieDetails.image}}"
+                                                                                              itemprop="image">
+                        </a></div>
+                    <div class="slate">
+                        <a href="{{movieDetails.trailer}}"
+                           class="slate_button prevent-ad-overlay video-modal" data-type="recommends"
+                           itemprop="trailer">
+                            <img *ngIf="movieDetails.imageTrailer!=null" alt="Trailer" title="Trailer"
+                                 src="{{movieDetails.imageTrailer}}"
+                                 itemprop="image">
+                            <img *ngIf="movieDetails.imageTrailer==null" alt="Trailer" title="Trailer"
+                                 src="/assets/images/trailer.jpg"
+                                 itemprop="image">
+                            <div class="slate_fade_top"></div>
+                            <div class="slate_fade_bottom"></div>
+                        </a>
+                        <div class="caption">
+                            <div style="clear: both;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div style="clear: both;"></div>
             <div class="article" id="titleCast">
-    <span class="rightcornerlink">
-            <a href="/register/login?why=edit&amp;ref_=tt_cl" rel="login">Edit</a>
-    </span>
                 <h2>Cast</h2>
 
                 <table class="cast_list">
@@ -418,16 +416,11 @@
                 </div>
             </div>
             <div class="article" id="titleStoryLine">
-    <span class="rightcornerlink">
-            <a href="/register/login?why=edit&amp;ref_=tt_stry" rel="login">Edit</a>
-    </span>
-
                 <h2>Storyline</h2>
-
                 <div class="inline canwrap" itemprop="description">
                     <p>
-                        Lara Croft is the fiercely independent daughter of an eccentric adventurer who vanished when she was scarcely a teen. Now a young woman of 21 without any real focus or purpose, Lara navigates the chaotic streets of trendy East London as a bike courier, barely making the rent, and takes college courses, rarely making it to class. Determined to forge her own path, she refuses to take the reins of her father's global empire just as staunchly as she rejects the idea that he's truly gone. Advised to face the facts and move forward after seven years without him, even Lara can't understand what drives her to finally solve the puzzle of his mysterious death. Going explicitly against his final wishes, she leaves everything she knows behind in search of her dad's last-known destination: a fabled tomb on a mythical island that might be somewhere off the coast of Japan. But her mission will not be an easy one; just reaching the island will be extremely treacherous. Suddenly, the stakes couldn't ...                <em >Written by
-                        <a href="/search/title?plot_author=Warner%20Bros.%20Pictures&amp;view=simple&amp;sort=alpha&amp;ref_=tt_stry_pl">Warner Bros. Pictures</a></em>            </p>
+                        {{movieDetails.storyline}}
+                    </p>
                 </div>
 
                 <span class="see-more inline">
@@ -480,7 +473,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 pull-right" style="height: 700px ">
+        <div class="col-md-3 pull-right" style="height: 700px ;padding: 0 0 0 0;">
             <app-sidebar></app-sidebar>
         </div>
     </section>

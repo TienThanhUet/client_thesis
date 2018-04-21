@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { routerTransition } from '../../router.animations';
-import {DashboardService} from "./service/dashboard.service";
+import { routerTransition } from '../../../router.animations';
+import {DashboardService} from "../service/dashboard.service";
 import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
-    styleUrls: ['./dashboard.component.scss'],
+    styleUrls: ['../dashboard.component.scss'],
     animations: [routerTransition()]
 })
 export class DashboardComponent implements OnInit {
@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
     ngOnInit() {
         this.dashboardService.topMovieType('Action').subscribe(
             response=>{
-                console.log(response.data)
+
             }
         )
     }

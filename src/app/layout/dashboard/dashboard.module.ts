@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NgbCarouselModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardComponent } from './dashboard.component';
+import {SliderbarModule} from '../../shared';
+
+import { DashboardComponent } from './components/dashboard.component';
 import {
     TimelineComponent,
     NotificationComponent,
-    ChatComponent,
-    SidebarComponent
+    ChatComponent
 
 } from './components';
 import { StatModule,CommentModule } from '../../shared';
@@ -28,7 +29,8 @@ import {DashboardService} from "./service/dashboard.service";
         DashboardRoutingModule,
         StatModule,
         SwiperModule,
-        CommentModule
+        CommentModule,
+        SliderbarModule
         // MdCardModule,
         // MdToolbarModule,
         // MdButtonModule,
@@ -38,8 +40,7 @@ import {DashboardService} from "./service/dashboard.service";
         DashboardComponent,
         TimelineComponent,
         NotificationComponent,
-        ChatComponent,
-        SidebarComponent
+        ChatComponent
     ],
     providers:[
         DashboardService

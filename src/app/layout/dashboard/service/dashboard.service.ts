@@ -11,10 +11,10 @@ export class DashboardService{
      }
 
      topMovieType(type:string,startYear=2017):Observable<any>{
-         return this.http.get(`${Constants.MOVIE_TOP_TYPE}?type=${type}&startYear=${startYear}`);
+         return this.http.get(`${Constants.MOVIE_TOP_TYPE}?type=${type}`);
      }
 
-    listMovieType(type:string,startYear=2017):Observable<any>{
-        return this.http.get(`${Constants.MOVIE_LIST_TYPE}?type=${type}&startYear=${startYear}`);
+    listMovieType(type:string,page:number,pageSize:number):Observable<any>{
+        return this.http.get(`${Constants.MOVIE_LIST_TYPE}?type=${type}&page=${page}&pageSize=${pageSize}`);
     }
 }
