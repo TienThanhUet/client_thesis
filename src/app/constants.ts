@@ -12,4 +12,6 @@ export class Constants {
 
     public static MOVIE_TOP_TYPE = Constants.BASE_SERVICE+'/movie/movie-type/top';
     public static MOVIE_LIST_TYPE = Constants.BASE_SERVICE+'/movie/movie-type/list';
+
+    public static GET_MOVIE = Constants.BASE_SERVICE+'/movie/details';
 }

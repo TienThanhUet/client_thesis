@@ -6,16 +6,32 @@ tr{
     font-size: 10px;
 }
 
+a{
+    text-decoration: none!important;
+    color:black;
+}
+
 
 
 .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding: 0 0 0 0 !important;
     margin-right: auto;
     margin-left: auto;
-    width: 1170px;
+    max-width: 960px!important;
     overflow: hidden;
     background-color: #f8f9fa;
+}
+
+.title_block {
+    padding: 20px 0 14px 0;
+}
+
+.vital {
+    background-color: #333;
+    color: #fff;
+    a{
+        color: silver;
+    }
 }
 
 .ratings_wrapper {

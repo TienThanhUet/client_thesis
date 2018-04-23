@@ -9,7 +9,7 @@ import {AuthService} from "../oauth2/auth.service";
     styleUrls: ['./login.component.scss'],
     animations: [routerTransition()]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
     data = {username: '', password: '', grant_type: 'password'}
     errorMessage: string
 
@@ -19,16 +19,18 @@ export class LoginComponent {
 
     }
 
+    ngOnInit(): void {
+        if(this.auth.isLoggined())
+            this.router.navigate(['/layout/dashboard'])
+    }
+
     processLogin = (data) => {
         if(this.validate(data)) return;
         this.auth.login(data).subscribe(
             response => {
-                console.log("user login!!!");
-                console.log(response);
                 this.auth.setToken(response.access_token);
+                console.log(response.access_token);
                 this.auth.setRefreshToken(response.refresh_token);
-
-                console.log(this.auth.getRedirectUrl());
                 if (this.auth.getRedirectUrl()) {
                     this.router.navigate(['/' + this.auth.getRedirectUrl()])
                 } else {
