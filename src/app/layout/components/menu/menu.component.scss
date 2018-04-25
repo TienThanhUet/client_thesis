@@ -50,3 +50,20 @@
 .nav-link{
     padding: 0 0 !important;
 }
+
+.full-table {
+    border-collapse: separate;
+    border-spacing: 0 0.3em;
+    margin-top: -0.3em;
+    display: table;
+    width: 100%;
+}
+
+.table-cell {
+    display: table-cell;
+}
+
+.table-row {
+    display: table-row;
+}
+

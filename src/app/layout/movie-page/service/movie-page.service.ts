@@ -13,4 +13,8 @@ export class MoviePageService{
     getMovie(tconst:string):Observable<any>{
         return this.http.get(`${Constants.GET_MOVIE}?tconst=${tconst}`);
     }
+
+    getArtists(tconst:string):Observable<any>{
+        return this.http.get(`${Constants.GET_MOVIE_ARTISTS}?tconst=${tconst}`);
+    }
 }

@@ -6,7 +6,7 @@ import { AuthGuard } from './oauth2/auth-guard.service';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'login',
+        redirectTo: 'layout',
         pathMatch: 'full'
     },
     { path: 'layout', loadChildren: './layout/layout.module#LayoutModule',canActivate:[AuthGuard]},

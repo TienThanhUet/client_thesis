@@ -38,6 +38,7 @@ export class SignupComponent implements OnInit {
             response=>{
                 if (response.errorCode === '00') {
                     this.router.navigate(["/layout/dashboard"])
+                    this.showNotifSuccess("tài khoản đăng ký thành công");
                 }
                 else {
                     this.showNotifError("uername hoặc email trùng lặp ")

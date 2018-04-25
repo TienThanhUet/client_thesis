@@ -1,47 +1,53 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
-    <span style="margin: 10px 0 10px 5px;">
+    <div style="padding: 10px 0 10px 5px;">
+        <span>
           ĐỀ XUẤT CHO BẠN
-    </span>
-    <div class="list-group">
-        <a routerLink="/dashboard" class="list-group-item">
-            <i class="fa fa-fw fa-dashboard"></i>&nbsp;Dashboard'
-        </a>
-        <!--<a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">-->
-            <!--<i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'Charts' | translate }}-->
-        <!--</a>-->
-        <!--<a [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">-->
-            <!--<i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Tables' | translate }}-->
-        <!--</a>-->
-        <!--<a [routerLink]="['/forms']" [routerLinkActive]="['router-link-active']" class="list-group-item">-->
-            <!--<i class="fa fa-fw fa-edit"></i>&nbsp;{{ 'Forms' | translate }}-->
-        <!--</a>-->
-        <!--<a [routerLink]="['/bs-element']" [routerLinkActive]="['router-link-active']" class="list-group-item">-->
-            <!--<i class="fa fa-fw fa-desktop"></i>&nbsp;{{ 'Bootstrap Element' | translate }}-->
-        <!--</a>-->
-        <!--<a [routerLink]="['/grid']" [routerLinkActive]="['router-link-active']" class="list-group-item">-->
-            <!--<i class="fa fa-fw fa-wrench"></i>&nbsp;{{ 'Bootstrap Grid' | translate }}-->
-        <!--</a>-->
-        <!--<a [routerLink]="['/components']" [routerLinkActive]="['router-link-active']" class="list-group-item">-->
-            <!--<i class="fa fa-th-list"></i>&nbsp;{{ 'Component' | translate }}-->
-        <!--</a>-->
-        <!--<div class="nested-menu">-->
-            <!--<a class="list-group-item" (click)="addExpandClass('pages')">-->
-                <!--<span><i class="fa fa-plus"></i>&nbsp; {{ 'Menu' | translate }}</span>-->
-            <!--</a>-->
-            <!--<li class="nested" [class.expand]="showMenu === 'pages'">-->
-                <!--<ul class="submenu">-->
-                    <!--<li>-->
-                        <!--<a href="javascript:void(0)"><span>{{ 'Submenu' | translate }}</span></a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<a href="javascript:void(0)"><span>{{ 'Submenu' | translate }}</span></a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<a href="javascript:void(0)"><span>{{ 'Submenu' | translate }}</span></a>-->
-                    <!--</li>-->
-                <!--</ul>-->
-            <!--</li>-->
-        <!--</div>-->
-
+        </span>
+    </div>
+    <div class="slider-content">
+        <ul class="list-top-movie slim-scroll" id="list-top-film-week"
+            style="overflow: hidden; width: auto; height: 477px;">
+            <li class="list-top-movie-item"><a class="list-top-movie-link" title="Đấu trí - Suits"
+                                               href="phim/dau-tri-6669/">
+                <div class="list-top-movie-item-thumb"
+                     style="background-image: url('http://image.phimmoi.net/film/6669/poster.small.jpg')"></div>
+                <div class="list-top-movie-item-info"><span class="list-top-movie-item-vn">Đấu trí</span><span
+                    class="list-top-movie-item-en">Suits</span><span
+                    class="list-top-movie-item-view">Lượt xem: 13,172</span><span class="rate-vote rate-vote-10"></span>
+                </div>
+            </a></li>
+            <li class="list-top-movie-item"><a class="list-top-movie-link" title="Cú Lừa Ngoạn Mục - Beyond the Edge"
+                                               href="phim/cu-lua-ngoan-muc-6775/">
+                <div class="list-top-movie-item-thumb"
+                     style="background-image: url('http://image.phimmoi.net/film/6775/poster.small.jpg')"></div>
+                <div class="list-top-movie-item-info"><span class="list-top-movie-item-vn">Cú Lừa Ngoạn Mục</span><span
+                    class="list-top-movie-item-en">Beyond the Edge</span><span class="list-top-movie-item-view">Lượt xem: 2,516</span>
+                </div>
+            </a></li>
+            <li class="list-top-movie-item"><a class="list-top-movie-link" title="Siêu Thú Cuồng Nộ - Rampage"
+                                               href="phim/sieu-thu-cuong-no-6374/">
+                <div class="list-top-movie-item-thumb"
+                     style="background-image: url('http://image.phimmoi.net/film/6374/poster.small.jpg')"></div>
+                <div class="list-top-movie-item-info"><span class="list-top-movie-item-vn">Siêu Thú Cuồng Nộ</span><span
+                    class="list-top-movie-item-en">Rampage</span><span class="list-top-movie-item-view">Lượt xem: 405,006</span><span
+                    class="rate-vote rate-vote-9"></span></div>
+            </a></li>
+            <li class="list-top-movie-item"><a class="list-top-movie-link" title="Siêu Thú Cuồng Nộ - Rampage"
+                                               href="phim/sieu-thu-cuong-no-6374/">
+                <div class="list-top-movie-item-thumb"
+                     style="background-image: url('http://image.phimmoi.net/film/6374/poster.small.jpg')"></div>
+                <div class="list-top-movie-item-info"><span class="list-top-movie-item-vn">Siêu Thú Cuồng Nộ</span><span
+                    class="list-top-movie-item-en">Rampage</span><span class="list-top-movie-item-view">Lượt xem: 405,006</span><span
+                    class="rate-vote rate-vote-9"></span></div>
+            </a></li>
+            <li class="list-top-movie-item"><a class="list-top-movie-link" title="Siêu Thú Cuồng Nộ - Rampage"
+                                               href="phim/sieu-thu-cuong-no-6374/">
+                <div class="list-top-movie-item-thumb"
+                     style="background-image: url('http://image.phimmoi.net/film/6374/poster.small.jpg')"></div>
+                <div class="list-top-movie-item-info"><span class="list-top-movie-item-vn">Siêu Thú Cuồng Nộ</span><span
+                    class="list-top-movie-item-en">Rampage</span><span class="list-top-movie-item-view">Lượt xem: 405,006</span><span
+                    class="rate-vote rate-vote-9"></span></div>
+            </a></li>
+        </ul>
     </div>
 </nav>

@@ -2,24 +2,30 @@ tr{
     padding-top: 10px;
 }
 
+.h_custom {
+    color: #424242;
+    font: 24px Arial, sans-serif;
+    font-weight: normal;
+    font-weight: normal;
+}
+
 .small {
     font-size: 10px;
 }
 
 a{
     text-decoration: none!important;
-    color:black;
+    color:#424242;
 }
 
 
 
 .container {
-    padding: 0 0 0 0 !important;
+    padding: 0 0 10px !important;
     margin-right: auto;
     margin-left: auto;
-    max-width: 960px!important;
+    max-width: 1140px!important;
     overflow: hidden;
-    background-color: #f8f9fa;
 }
 
 .title_block {
@@ -38,6 +44,7 @@ a{
     float: right;
     position: relative;
     margin-left: 5px;
+    margin-top: 15px;
     width: 185px;
     z-index: 2;
 }
@@ -92,6 +99,10 @@ a{
     margin-right: 1px;
 }
 
+.star-rating-button{
+    border-left: 1px solid #fff;
+}
+
 .star-rating-button button {
     background-color: transparent;
     color: #fff;
@@ -105,7 +116,6 @@ a{
     width: 91px;
     border-radius: 0;
     cursor: pointer;
-    border-left: 1px solid #fff;
     border: 0;
 }
 

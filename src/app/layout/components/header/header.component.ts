@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from "../../../oauth2/auth.service";
+import {HeaderService} from './header.service';
+
+import {MovieSearchItem} from './model/movieSearchItem';
 
 @Component({
     selector: 'app-header',
@@ -9,11 +13,16 @@ import { AuthService } from "../../../oauth2/auth.service";
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+    username = 'Welcome you'
     pushRightClass: string = 'push-right';
+    textSearch:string = ''
+
+    movieSearchList:MovieSearchItem[] =[];
 
     constructor(private translate: TranslateService,
                 public router: Router,
-                private authService: AuthService) {
+                private authService: AuthService,
+                private headerService:HeaderService) {
 
         this.translate.addLangs(['en','vn']);
         this.translate.setDefaultLang('en');
@@ -33,6 +42,25 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {
         this.rltAndLtr();
+        this.getProfile();
+    }
+
+    getProfile(){
+        this.headerService.getProfile().subscribe(
+            response=>{
+                this.username = response.data.username;
+            },
+            err=>{}
+        )
+    }
+
+    processSearch(textSearch){
+        this.headerService.processSearch(textSearch).subscribe(
+            response=>{
+                this.movieSearchList = response.data as MovieSearchItem[];
+            },
+            err=>{}
+        )
     }
 
     isToggled(): boolean {

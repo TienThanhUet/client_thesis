@@ -15,7 +15,8 @@ const routes: Routes = [
             { path: 'bs-element', loadChildren: './bs-element/bs-element.module#BsElementModule' },
             { path: 'grid', loadChildren: './grid/grid.module#GridModule' },
             { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
-            { path: 'movie-item', loadChildren: './movie-page/movie.module#MovieModule' }
+            { path: 'movie', loadChildren: './movie-page/movie-page.module#MoviePageModule' },
+            { path: 'movie-type', loadChildren: './movie-type/movie-type.module#MovieTypeModule'},
         ]
     }
 ];

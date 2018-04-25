@@ -35,4 +35,15 @@ $topnav-background-color: #F6F6F6;
             }
         }
     }
+    .poster{
+        .detail{
+            color: #666666;
+            text-decoration: none;
+            font-size: 11px;
+            margin-top: 2px;
+        }
+    }
+    .dropdown-toggle::after {
+        display:none
+    }
 }

@@ -1,13 +1,16 @@
 import {Component,OnInit} from "@angular/core"
 
 @Component({
-    templateUrl:'./comment.component.html'
+    selector:'app-comment',
+    templateUrl:'./comment.component.html',
+    styleUrls:['./comment.component.css']
 })
 
 export class CommentComponent implements OnInit{
 
 
     ngOnInit(): void {
+
     }
 
 

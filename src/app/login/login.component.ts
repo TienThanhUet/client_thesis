@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit{
         if(this.validate(data)) return;
         this.auth.login(data).subscribe(
             response => {
+                console.log(response);
                 this.auth.setToken(response.access_token);
-                console.log(response.access_token);
                 this.auth.setRefreshToken(response.refresh_token);
                 if (this.auth.getRedirectUrl()) {
                     this.router.navigate(['/' + this.auth.getRedirectUrl()])
@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit{
 
             },
             error => {
-                const response = JSON.parse(error.error)
                 this.errorMessage = "username or password incorrect";
             }
         )

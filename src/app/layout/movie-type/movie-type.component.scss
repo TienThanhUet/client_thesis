@@ -1,0 +1,57 @@
+
+a{
+    text-decoration: none!important;
+    color:#424242;
+}
+
+.container {
+    padding: 0 0 10px !important;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1140px!important;
+    overflow: hidden;
+}
+
+
+.article {
+    border-top: 1px solid #CCC;
+    padding: 20px 21px 24px 20px;
+    background: none;
+    border-radius: 0px;
+    border-top-width: medium;
+    border-top-style: none;
+    border-top-color: currentcolor;
+    box-shadow: none;
+    margin: 0;
+}
+
+.ninja_image_pack {
+    overflow: hidden;
+}
+
+.ninja_image {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.ninja_image_relative_padding {
+    height: auto;
+    max-width: 10px;
+}
+
+
+.full-table {
+    border-collapse: separate;
+    border-spacing: 0 0.3em;
+    margin-top: -0.3em;
+    display: table;
+    width: 100%;
+}
+
+.table-cell {
+    display: table-cell;
+}
+
+.table-row {
+    display: table-row;
+}

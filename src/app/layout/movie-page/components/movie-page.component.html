@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" xmlns="http://www.w3.org/1999/html">
     <section>
-        <div class="col-md-9 pull-left" style="padding: 0 0 0 0">
+        <div class="col-md-9 pull-left" style="padding: 0 0 15px 0; background-color: #f8f9fa;">
             <div class="vital">
                 <div class="title_block">
                     <div class="title_bar_wrapper">
@@ -11,7 +11,8 @@
                                 <div class="ratingValue">
                                     <strong title="6.8 based on 35,401 user ratings"><span itemprop="ratingValue">{{movieDetails.averageRating}}</span></strong><span
                                     class="grey">/</span><span class="grey" itemprop="bestRating">10</span></div>
-                                <a href="/title/tt1365519/ratings?ref_=tt_ov_rt"><span class="small" itemprop="ratingCount">{{movieDetails.numVotes}}</span></a>
+                                <a href="/title/tt1365519/ratings?ref_=tt_ov_rt"><span class="small"
+                                                                                       itemprop="ratingCount">{{movieDetails.numVotes}}</span></a>
                             </div>
 
                             <div id="star-rating-widget" class="star-rating-widget" data-rating="0"
@@ -31,8 +32,10 @@
                                      style="position: relative;">
                                     <div class="wl-ribbon standalone not-inWL" title="Click to add to watchlist"></div>
                                 </div>
-                                <div class="wlb_dropdown_btn btn2_wrapper btn2_active wlb_dropdown" data-tconst="tt1365519"
-                                     data-size="large" data-caller-name="title" data-type="primary" data-initialized="1">
+                                <div class="wlb_dropdown_btn btn2_wrapper btn2_active wlb_dropdown"
+                                     data-tconst="tt1365519"
+                                     data-size="large" data-caller-name="title" data-type="primary"
+                                     data-initialized="1">
                                     <div class="btn2_alert" style="display:none"></div>
                                     <a class="btn2 large primary btn2_glyph_on" onclick=""><span class="btn2_glyph"><div
                                         class="btn2_down"></div></span><span class="btn2_text"></span></a></div>
@@ -47,12 +50,12 @@
                                     PG-13
                                     <span class="ghost">|</span>
                                     <time itemprop="duration" datetime="PT118M">
-                                        1h 58min
+                                        {{movieDetails.runtimeMinutes}} minutes
                                     </time>
                                     <span class="ghost">|</span>
-                                    <a href="/genre/Action?ref_=tt_ov_inf"><span class="itemprop" itemprop="genre">{{movieDetails.genres}}</span></a>
+                                    <a *ngFor="let genre of genres"><span class="itemprop">{{genre}} </span></a>
                                     <span class="ghost">|</span>
-                                    <a href="/title/tt1365519/releaseinfo?ref_=tt_ov_inf" title="See more release dates">({{movieDetails.region}})
+                                    <a [routerLink]="['/layout/movie-type']" title="See more release dates">({{movieDetails.region}})
                                         <meta itemprop="datePublished" content="2018-03-16">
                                     </a></div>
                             </div>
@@ -61,10 +64,11 @@
                 </div>
                 <div class="slate_wrapper">
                     <div class="poster">
-                        <a href="/title/tt1365519/mediaviewer/rm567498240?ref_=tt_ov_i"> <img alt="{{movieDetails.primaryTitle}}"
-                                                                                              title="{{movieDetails.primaryTitle}}"
-                                                                                              src="{{movieDetails.image}}"
-                                                                                              itemprop="image">
+                        <a href="/title/tt1365519/mediaviewer/rm567498240?ref_=tt_ov_i"> <img
+                            alt="{{movieDetails.primaryTitle}}"
+                            title="{{movieDetails.primaryTitle}}"
+                            src="{{movieDetails.image}}"
+                            itemprop="image">
                         </a></div>
                     <div class="slate">
                         <a href="{{movieDetails.trailer}}"
@@ -87,323 +91,31 @@
             </div>
             <div style="clear: both;"></div>
             <div class="article" id="titleCast">
-                <h2>Cast</h2>
+                <h2 class="h_custom">{{'Cast' | translate}}</h2>
 
                 <table class="cast_list">
                     <tbody>
-                    <tr>
-                        <td colspan="4" class="castlist_label">Cast overview, first billed only:</td>
-                    </tr>
-                    <tr class="odd">
+                    <tr class="odd" *ngFor="let artist of artistItems">
                         <td class="primary_photo">
-                            <a href="/name/nm2539953/?ref_=tt_cl_i1"><img alt="Alicia Vikander" title="Alicia Vikander"
-                                                                          src="https://ia.media-imdb.com/images/M/MV5BZmMxYzk1OWEtMjE0MC00NTRlLTgwNTEtMGQ1YjA1Yzg1Nzc3XkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_UX32_CR0,0,32,44_AL_.jpg"
-                                                                          class="loadlate" width="32" height="44"></a>
+                            <a [routerLink]="['/layout/artist']" [queryParams]="{nconst: artist.nconst}">
+                                <img *ngIf="artist.image!=null" alt="{{artist.name}}" title="{{artist.name}}"
+                                src="{{artist.image}}"
+                                class="loadlate" width="32" height="44">
+                                <img *ngIf="artist.image==null" alt="{{artist.name}}" title="{{artist.name}}"
+                                 src="/assets/images/artist-icon.png"
+                                 class="loadlate" width="32" height="44">
+                            </a>
                         </td>
                         <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm2539953/?ref_=tt_cl_t1" itemprop="url"> <span class="itemprop"
-                                                                                           itemprop="name">Alicia Vikander</span>
+                            <a [routerLink]="['/layout/artist']" [queryParams]="{nconst: artist.nconst}" itemprop="url">
+                                <span class="itemprop">{{artist.name}}</span>
                             </a></td>
                         <td class="ellipsis">
                             ...
                         </td>
                         <td class="character">
                             <div>
-                                <a href="/title/tt1365519/characters/nm2539953?ref_=tt_cl_t1">Lara Croft</a>
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td class="primary_photo">
-                            <a href="/name/nm0922035/?ref_=tt_cl_i2"><img alt="Dominic West" title="Dominic West"
-                                                                          src="https://ia.media-imdb.com/images/M/MV5BMjM1MDU1Mzg3N15BMl5BanBnXkFtZTgwNTcwNzcyMzI@._V1_UY44_CR19,0,32,44_AL_.jpg"
-                                                                          class="loadlate" width="32" height="44"></a>
-                        </td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm0922035/?ref_=tt_cl_t2" itemprop="url"> <span class="itemprop"
-                                                                                           itemprop="name">Dominic West</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                <a href="/title/tt1365519/characters/nm0922035?ref_=tt_cl_t2">Lord Richard Croft</a>
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="primary_photo">
-                            <a href="/name/nm0324658/?ref_=tt_cl_i3"><img alt="Walton Goggins" title="Walton Goggins"
-                                                                          src="https://ia.media-imdb.com/images/M/MV5BYzYyNmUwMmItYzE4YS00ZTQxLWJiNjUtNzA0OGIzZGYzNDk2XkEyXkFqcGdeQXVyNDg4OTQzNjg@._V1_UX32_CR0,0,32,44_AL_.jpg"
-                                                                          class="loadlate" width="32" height="44"></a>
-                        </td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm0324658/?ref_=tt_cl_t3" itemprop="url"> <span class="itemprop"
-                                                                                           itemprop="name">Walton Goggins</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                <a href="/title/tt1365519/characters/nm0324658?ref_=tt_cl_t3">Mathias Vogel</a>
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td class="primary_photo">
-                            <a href="/name/nm0943079/?ref_=tt_cl_i4"><img alt="Daniel Wu" title="Daniel Wu"
-                                                                          src="https://ia.media-imdb.com/images/M/MV5BMTIzNTk3NTA2Ml5BMl5BanBnXkFtZTYwODI2MTY1._V1_UY44_CR0,0,32,44_AL_.jpg"
-                                                                          class="loadlate" width="32" height="44"></a>
-                        </td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm0943079/?ref_=tt_cl_t4" itemprop="url"> <span class="itemprop"
-                                                                                           itemprop="name">Daniel Wu</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                <a href="/title/tt1365519/characters/nm0943079?ref_=tt_cl_t4">Lu Ren</a>
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="primary_photo">
-                            <a href="/name/nm0000218/?ref_=tt_cl_i5"><img alt="Kristin Scott Thomas"
-                                                                          title="Kristin Scott Thomas"
-                                                                          src="https://ia.media-imdb.com/images/M/MV5BNDc2MjQ1MzE4NV5BMl5BanBnXkFtZTcwMzU4NDU1OQ@@._V1_UX32_CR0,0,32,44_AL_.jpg"
-                                                                          class="loadlate" width="32" height="44"></a>
-                        </td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm0000218/?ref_=tt_cl_t5" itemprop="url"> <span class="itemprop"
-                                                                                           itemprop="name">Kristin Scott Thomas</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                <a href="/title/tt1365519/characters/nm0000218?ref_=tt_cl_t5">Ana Miller</a>
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td class="primary_photo">
-                            <a href="/name/nm0001394/?ref_=tt_cl_i6"><img alt="Derek Jacobi" title="Derek Jacobi"
-                                                                          src="https://ia.media-imdb.com/images/M/MV5BMjIzMDkwNzI2OF5BMl5BanBnXkFtZTcwMDkxODgwMw@@._V1_UY44_CR6,0,32,44_AL_.jpg"
-                                                                          class="loadlate" width="32" height="44"></a>
-                        </td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm0001394/?ref_=tt_cl_t6" itemprop="url"> <span class="itemprop"
-                                                                                           itemprop="name">Derek Jacobi</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                <a href="/title/tt1365519/characters/nm0001394?ref_=tt_cl_t6">Mr. Yaffe</a>
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="primary_photo">
-                            <a href="/name/nm0929654/?ref_=tt_cl_i7"><img alt="Alexandre Willaume"
-                                                                          title="Alexandre Willaume"
-                                                                          src="https://ia.media-imdb.com/images/M/MV5BMjIxMzYwNTQ5MV5BMl5BanBnXkFtZTgwNDA0OTY1MzE@._V1_UX32_CR0,0,32,44_AL_.jpg"
-                                                                          class="loadlate" width="32" height="44"></a>
-                        </td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm0929654/?ref_=tt_cl_t7" itemprop="url"> <span class="itemprop"
-                                                                                           itemprop="name">Alexandre Willaume</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                <a href="/title/tt1365519/characters/nm0929654?ref_=tt_cl_t7">Lieutenant</a>
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td class="primary_photo">
-                            <a href="/name/nm3116102/?ref_=tt_cl_i8"><img alt="Tamer Burjaq" title="Tamer Burjaq"
-                                                                          src="https://images-na.ssl-images-amazon.com/images/G/01/imdb/images/nopicture/32x44/name-2138558783._CB499603809_.png"
-                                                                          class="" width="32" height="44"></a></td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm3116102/?ref_=tt_cl_t8" itemprop="url"> <span class="itemprop"
-                                                                                           itemprop="name">Tamer Burjaq</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                Mercenary
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="primary_photo">
-                            <a href="/name/nm3248891/?ref_=tt_cl_i9"><img alt="Adrian Collins" title="Adrian Collins"
-                                                                          src="https://ia.media-imdb.com/images/M/MV5BNGRmMGM3YjQtNzQwNi00NzQ4LTg2NjgtYmE2Y2Y4ZmI3NjYzXkEyXkFqcGdeQXVyODMwNDM4NjQ@._V1_UX32_CR0,0,32,44_AL_.jpg"
-                                                                          class="loadlate" width="32" height="44"></a>
-                        </td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm3248891/?ref_=tt_cl_t9" itemprop="url"> <span class="itemprop"
-                                                                                           itemprop="name">Adrian Collins</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                Mercenary
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td class="primary_photo">
-                            <a href="/name/nm2418809/?ref_=tt_cl_i10"><img alt="Keenan Arrison" title="Keenan Arrison"
-                                                                           src="https://ia.media-imdb.com/images/M/MV5BYmQzZGQ2MTktYjA2NC00MjQwLTgxYjYtOTlhYjk0NzRlMTNlXkEyXkFqcGdeQXVyNjAzNzI4ODE@._V1_UX32_CR0,0,32,44_AL_.jpg"
-                                                                           class="loadlate" width="32" height="44"></a>
-                        </td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm2418809/?ref_=tt_cl_t10" itemprop="url"> <span class="itemprop"
-                                                                                            itemprop="name">Keenan Arrison</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                Mercenary
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="primary_photo">
-                            <a href="/name/nm4491546/?ref_=tt_cl_i11"><img alt="Andrian Mazive" title="Andrian Mazive"
-                                                                           src="https://images-na.ssl-images-amazon.com/images/G/01/imdb/images/nopicture/32x44/name-2138558783._CB499603809_.png"
-                                                                           class="" width="32" height="44"></a></td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm4491546/?ref_=tt_cl_t11" itemprop="url"> <span class="itemprop"
-                                                                                            itemprop="name">Andrian Mazive</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                Mercenary
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td class="primary_photo">
-                            <a href="/name/nm4305023/?ref_=tt_cl_i12"><img alt="Milton Schorr" title="Milton Schorr"
-                                                                           src="https://ia.media-imdb.com/images/M/MV5BMjQ5ZWFhYzMtMDIxZS00NmY3LTk1MDAtZmIzNzAyZTNlMDRkL2ltYWdlXkEyXkFqcGdeQXVyMjQ1MDI4Nzc@._V1_UX32_CR0,0,32,44_AL_.jpg"
-                                                                           class="loadlate" width="32" height="44"></a>
-                        </td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm4305023/?ref_=tt_cl_t12" itemprop="url"> <span class="itemprop"
-                                                                                            itemprop="name">Milton Schorr</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                Mercenary
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="primary_photo">
-                            <a href="/name/nm4789912/?ref_=tt_cl_i13"><img alt="Hannah John-Kamen"
-                                                                           title="Hannah John-Kamen"
-                                                                           src="https://ia.media-imdb.com/images/M/MV5BMTQ2MTE3MTkzMl5BMl5BanBnXkFtZTgwMzAyMTE1ODE@._V1_UY44_CR0,0,32,44_AL_.jpg"
-                                                                           class="loadlate" width="32" height="44"></a>
-                        </td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm4789912/?ref_=tt_cl_t13" itemprop="url"> <span class="itemprop"
-                                                                                            itemprop="name">Hannah John-Kamen</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                <a href="/title/tt1365519/characters/nm4789912?ref_=tt_cl_t13">Sophie</a>
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td class="primary_photo">
-                            <a href="/name/nm9678609/?ref_=tt_cl_i14"><img alt="Peter Waison" title="Peter Waison"
-                                                                           src="https://images-na.ssl-images-amazon.com/images/G/01/imdb/images/nopicture/32x44/name-2138558783._CB499603809_.png"
-                                                                           class="" width="32" height="44"></a></td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm9678609/?ref_=tt_cl_t14" itemprop="url"> <span class="itemprop"
-                                                                                            itemprop="name">Peter Waison</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                Taxi Driver
-
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="primary_photo">
-                            <a href="/name/nm5786571/?ref_=tt_cl_i15"><img alt="Samuel Mak" title="Samuel Mak"
-                                                                           src="https://ia.media-imdb.com/images/M/MV5BYjEyZjk5YzktNjhlZi00YTBiLWE0ZDMtZDQ2NDAzMGJhMTY0XkEyXkFqcGdeQXVyNDQxMjU0ODU@._V1_UX32_CR0,0,32,44_AL_.jpg"
-                                                                           class="loadlate" width="32" height="44"></a>
-                        </td>
-                        <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="/name/nm5786571/?ref_=tt_cl_t15" itemprop="url"> <span class="itemprop"
-                                                                                            itemprop="name">Samuel Mak</span>
-                            </a></td>
-                        <td class="ellipsis">
-                            ...
-                        </td>
-                        <td class="character">
-                            <div>
-                                <a href="/title/tt1365519/characters/nm5786571?ref_=tt_cl_t15">Chinese Kid</a>
+                                <a href="">{{artist.characters}}</a>
 
 
                             </div>
@@ -416,7 +128,7 @@
                 </div>
             </div>
             <div class="article" id="titleStoryLine">
-                <h2>Storyline</h2>
+                <h2 class="h_custom">{{'Storyline'|translate}}</h2>
                 <div class="inline canwrap" itemprop="description">
                     <p>
                         {{movieDetails.storyline}}
@@ -430,28 +142,26 @@
     </span>
                 <hr>
                 <div class="see-more inline canwrap" itemprop="keywords">
-                    <h4 class="inline">Plot Keywords:</h4>
-                    <a href="/keyword/lara-croft?ref_=tt_stry_kw"> <span class="itemprop" itemprop="keywords">lara croft</span></a>
+                    <h4 class="inline h_custom">{{'Plot Keywords'|translate}}:</h4>
+                    <a href="/keyword/lara-croft?ref_=tt_stry_kw"> <span class="itemprop"
+                                                                         itemprop="keywords">lara croft</span></a>
                     <span>|</span>
                     <a href="/keyword/action-heroine?ref_=tt_stry_kw"> <span class="itemprop" itemprop="keywords">action heroine</span></a>
                     <span>|</span>
                     <a href="/keyword/female-protagonist?ref_=tt_stry_kw"> <span class="itemprop" itemprop="keywords">female protagonist</span></a>
                     <span>|</span>
-                    <a href="/keyword/re-boot?ref_=tt_stry_kw"> <span class="itemprop" itemprop="keywords">re boot</span></a>
+                    <a href="/keyword/re-boot?ref_=tt_stry_kw"> <span class="itemprop"
+                                                                      itemprop="keywords">re boot</span></a>
                     <span>|</span>
                     <a href="/keyword/based-on-video-game?ref_=tt_stry_kw"> <span class="itemprop" itemprop="keywords">based on video game</span></a>
                     <span>|</span>&nbsp;
 
                 </div>
                 <hr>
-                <div class="txt-block">
-                    <h4 class="inline">Taglines:</h4>
-                    Her legend begins.        </div>
                 <hr>
                 <div class="see-more inline canwrap" itemprop="genre">
-                    <h4 class="inline">Genres:</h4>
-                    <a href="/genre/Action?ref_=tt_stry_gnr"> Action</a>&nbsp;<span>|</span>
-                    <a href="/genre/Adventure?ref_=tt_stry_gnr"> Adventure</a>
+                    <h4 class="inline h_custom">{{'Genres'|translate}}:</h4>
+                    <a [routerLink]="['/layout/movie-type']" *ngFor="let genre of genres"> {{genre}} |</a>
                 </div>
 
                 <hr>
@@ -461,19 +171,21 @@
                         (<a href="/mpaa?ref_=tt_stry_pg">MPAA</a>)
                     </h4>
                     <span itemprop="contentRating">Rated PG-13 for sequences of violence and action, and for some language</span>
-                    <span class="ghost">|</span>            <span class="see-more inline">
+                    <span class="ghost">|</span> <span class="see-more inline">
 <a href="/title/tt1365519/parentalguide?ref_=tt_stry_pg#certification"> See all certifications</a>&nbsp;»
             </span>
                 </div>
                 <div class="txt-block">
                     <h4 class="inline">Parents Guide:</h4>
-                    <span class="see-more inline" itemprop="audience" itemscope="" itemtype="http://schema.org/Audience">
+                    <span class="see-more inline" itemprop="audience" itemscope=""
+                          itemtype="http://schema.org/Audience">
 <a href="/title/tt1365519/parentalguide?ref_=tt_stry_pg" itemprop="url"> View content advisory</a>&nbsp;»
         </span>
                 </div>
             </div>
+            <app-comment></app-comment>
         </div>
-        <div class="col-md-3 pull-right" style="height: 700px ;padding: 0 0 0 0;">
+        <div class="col-md-3 pull-right" style="height: 700px;">
             <app-sidebar></app-sidebar>
         </div>
     </section>
